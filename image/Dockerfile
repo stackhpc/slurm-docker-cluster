@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.source="https://github.com/stackhpc/slurm-docker-
       org.label-schema.docker.cmd="docker-compose up -d" \
       maintainer="StackHPC"
 
-ARG SLURM_TAG=slurm-23.02
+ARG SLURM_TAG=slurm-24.05
 ARG GOSU_VERSION=1.11
 
 COPY kubernetes.repo /etc/yum.repos.d/kubernetes.repo
@@ -23,6 +23,7 @@ RUN set -ex \
     && yum -y install \
        wget \
        bzip2 \
+       dbus-devel \
        perl \
        gcc \
        gcc-c++\
@@ -31,6 +32,11 @@ RUN set -ex \
        make \
        munge \
        munge-devel \
+       openssl-devel \
+       numactl \
+       numactl-devel \
+       perl-ExtUtils-MakeMaker \
+       pam-devel \
        python3-devel \
        python3-pip \
        python3 \
