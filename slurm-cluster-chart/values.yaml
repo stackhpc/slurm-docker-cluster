@@ -25,7 +25,7 @@ storage:
   # installed on the cluster as a dependency of this Slurm
   # chart. If you are using a separate RWM StorageClass, then
   # set rooknfs.enabled = false
-  storageClassName: slurm-rook-nfs
+  storageClassName: sc-wekafs-api-fs
   # Name for the R-W-M volume to provision
   claimName: slurm-shared-storage
   # Capacite of the R-W-M volume
@@ -35,7 +35,7 @@ storage:
 # Values to be passed to the rook-nfs sub-chart
 # See rook-nfs sub-chart for full set of available config values
 rooknfs:
-  enabled: true
+  enabled: false
   # Name given to the RWM StorageClass created by Rook
   # NB this must match storage.storageClassName when using Rook
   storageClassName: slurm-rook-nfs

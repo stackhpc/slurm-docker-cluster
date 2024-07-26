@@ -39,6 +39,8 @@ spec:
           ports:
             - containerPort: 3306
           resources: {}
+          securityContext:
+            fsGroup: 2000
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: var-lib-mysql
@@ -48,3 +50,4 @@ spec:
         - name: var-lib-mysql
           persistentVolumeClaim:
             claimName: var-lib-mysql
+          
